@@ -32,7 +32,7 @@ public class DataGenerator {
                 .when()
                 .post("/api/system/users")
                 .then()
-                .statusCode(404);
+                .statusCode(200);
     }
 
     public static String getRandomLogin() {
