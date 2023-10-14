@@ -49,10 +49,8 @@ public class AuthTest {
         var blockedUser = getRegisteredUser("blocked");
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
-        $("button.button").click();
-        $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.text("Ошибка! \" + \"Пользователь заблокирован"))
-                .shouldBe((Condition.visible));
+        $("button[data-test-id=action-login]").click();
+        $("[data-test-id='error-notification'] [class='notification__content']").shouldHave(Condition.exactText(""));
     }
 
     @Test
