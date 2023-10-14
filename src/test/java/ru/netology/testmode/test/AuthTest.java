@@ -28,7 +28,7 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
-        $("h2.heading.heading_size_l.heading_theme_alfa-on-white").shouldHave(Condition.exactText("Интернет Банк")).shouldBe(Condition.visible);
+        $("h2.heading.heading_size_l.heading_theme_alfa-on-white").shouldHave(Condition.exactText("Личный кабинет")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class AuthTest {
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $("button.button").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
+                .shouldHave(Condition.text("Ошибка! \" + \"Пользователь заблокирован"))
                 .shouldBe((Condition.visible));
     }
 
