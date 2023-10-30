@@ -28,7 +28,7 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
-        $("h2.heading.heading_size_l.heading_theme_alfa-on-white").shouldHave(Condition.exactText("Личный кабинет")).shouldBe(Condition.visible);
+        $("h2").shouldHave(Condition.exactText("Личный кабинет")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $("button[data-test-id=action-login]").click();
-        $("[data-test-id='error-notification'] [class='notification__content']").shouldHave(Condition.exactText(""));
+        $("[data-test-id='error-notification'] [class='notification__content']").shouldHave(Condition.exactText("Ошибка! Пользователь заблокирован"));
     }
 
     @Test
